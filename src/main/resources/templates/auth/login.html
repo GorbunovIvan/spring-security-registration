@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+</head>
+<body>
+    <div>
+        <div th:include="fragments/onlyGreatings.html :: greetings"></div>
+        <h4>Log in</h4>
+        <form method="POST" action="/auth/login">
+            <input type="text" name="username" placeholder="login"/><br/>
+            <input type="password" name="password" placeholder="password"/><br/>
+            <input type="submit" value="Log in"/>
+        </form>
+        <p>Or <a href="/auth/register">register</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div th:fragment="greetings">
+        <div th:include="fragments/onlyGreatings :: greetings"></div>
+        <div th:include="fragments/onlyForUnauthorized.html :: greetings"></div>
+    </div>
+</body>
+</html>

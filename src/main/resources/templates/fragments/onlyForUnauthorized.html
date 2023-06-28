@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div th:fragment="greetings">
+        <div th:if="${currentUser == ''}">
+            You can <a href="/auth/login">Log in</a> or <a href="/auth/register">Register</a>
+            <hr/>
+        </div>
+    </div>
+</body>
+</html>

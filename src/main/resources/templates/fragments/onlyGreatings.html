@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div th:fragment="greetings">
+        <div th:if="currentUser != null">
+            <div th:if="${currentUser != ''}">
+                Hello, <span th:text="${currentUser}">username</span>
+                <form method="POST" action="/auth/logout">
+                    <input type="submit" value="Log out"/>
+                </form>
+                <hr/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

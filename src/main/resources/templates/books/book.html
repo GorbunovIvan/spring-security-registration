@@ -6,6 +6,7 @@
 </head>
 <body>
     <div>
+        <div th:include="fragments/mainGreatings :: greetings"></div>
         <h4>Book <span th:text="${book.getName()}">book</span></h4>
         <hr/>
         <form method="POST" th:action="@{/books/{id}(id=${book.getId()})}">

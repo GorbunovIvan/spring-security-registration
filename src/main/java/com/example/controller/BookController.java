@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.model.Book;
 import com.example.service.BookService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class BookController {
     }
 
     @PostMapping
-    public String create(Book book) {
+    public String create(@ModelAttribute Book book) {
         bookService.create(book);
         return "redirect:/books";
     }
@@ -41,5 +42,14 @@ public class BookController {
     @ModelAttribute("newBook")
     public Book newBook() {
         return Book.builder().build();
+    }
+
+    @ModelAttribute("currentUser")
+    public String currentUser() {
+        String name = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (name == null || name.equals("anonymousUser")) {
+            return "";
+        }
+        return name;
     }
 }
