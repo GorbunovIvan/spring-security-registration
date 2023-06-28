@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${'Book ' + book.getName()}">book</title>
+</head>
+<body>
+    <div>
+        <h4>Book <span th:text="${book.getName()}">book</span></h4>
+        <hr/>
+        <form method="POST" th:action="@{/books/{id}(id=${book.getId()})}">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete book"/>
+        </form>
+    </div>
+</body>
+</html>
